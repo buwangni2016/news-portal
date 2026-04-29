@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply scroll-smooth; }
+  body { @apply bg-background text-primary antialiased; }
+  * { @apply box-border; }
+}
+
+@layer components {
+  .card-base {
+    @apply bg-white rounded-xl border border-gray-100 transition-all duration-200;
+  }
+  .card-base:hover {
+    @apply shadow-lg -translate-y-0.5 border-gray-200;
+  }
+  .skeleton {
+    @apply bg-gray-200 rounded animate-shimmer;
+    background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+    background-size: 200% 100%;
+  }
+  .tag-base {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .hot-badge {
+    @apply bg-accent text-white;
+  }
+  .nav-link {
+    @apply text-gray-600 hover:text-primary transition-colors duration-150 font-medium;
+  }
+  .nav-link.active {
+    @apply text-accent font-semibold;
+  }
+  .ad-slot {
+    @apply bg-gray-50 border border-dashed border-gray-300 rounded-lg flex items-center justify-center text-gray-400 text-sm;
+  }
+  .container-prose {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in { animation: fadeIn 0.2s ease-out; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-shimmer { animation: shimmer 1.5s infinite; }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
