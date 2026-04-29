@@ -1,0 +1,21 @@
+name = "news-portal-api"
+main = "src/index.ts"
+compatibility_date = "2024-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+# KV namespace for article storage
+[[kv_namespaces]]
+binding = "NEWS_KV"
+id = "YOUR_KV_NAMESPACE_ID"  # Replace after creating KV namespace
+
+# Cron trigger for scheduled scraping
+[triggers]
+crons = ["*/5 * * * *"]  # Every 5 minutes
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+
+# Secrets (set via `wrangler secret put`)
+# TAVILY_API_KEY
+# BRAVE_API_KEY
